@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <label>
+        <input type="radio" id="male" v-model="sex"  value="男"> 男 <br>
+        <input type="radio" id="wemale" v-model="sex" value="女"> 女 <br>
+    </label>
+    <h3>您选择的是: {{sex}}</h3>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data:{
+        message: '大忌啊肯德基阿卡的',
+        sex: '男'
+    }
+  })
+</script>
+</body>
+</html>

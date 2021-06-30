@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <p @click="btnclick()">{{message}}</p>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data:{
+      message: '海贼',
+
+    },
+    methods: {
+      btnclick: function (){
+        return this.message = 'add';
+      }
+    },
+    mounted: function (){
+      this.init('初始化是调用');
+    }
+  })
+</script>
+
+</body>
+</html>

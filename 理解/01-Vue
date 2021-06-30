@@ -1,0 +1,74 @@
+1. Vue生命周期
+2。 Mustache 插值操作 胡须语法 不仅可以写变量，还可以写简单的表达式  {{}}
+3. v-once 语法  : 某些情况下，可能不希望界面随意的改变
+    v-once：
+        该指令后面不需要跟任何表达式（比如 v-for 后面得跟表达式）
+        该指令表示元素和组件只渲染一次，不会随着数据的改变而改变
+4. v-html 语法: 某些情况下，从服务器请求到的数据本身就是一个HTML代码
+    如果我们直接通过{{}}来输出，会将html代码直接输出
+    我们希望按照html的格式来进行解析，显示对应的内容
+    该指令后面会跟上一个string类型
+    会将string的html解析出来进行渲染
+
+5. v-text : 类似Mustache  用于将数据显示在界面中 接受一个string类型的数据
+
+6. v-pre: 用于跳过这个元素和它子元素的编译过程， 用于显示原本的Mustache语法
+
+7. v-cloak: 斗篷语法 在某些情况下，浏览器可能会直接显示未编译的Mustache标签
+
+8. v-bind : 除了内容需要动态来决定之外，某些属性也希望我们动态来绑定
+        a. 比如动态绑定a元素的href属性
+
+        v-bind 动态绑定属性
+            缩写： :
+            any(with argument) | Object(without argument)
+            参数 : attrOrProp(optional)
+
+
+二： 计算属性
+    2.1 computed :  有缓存
+
+三： 事件监听
+    3.1 v-on ： 监听事件
+        作用： 绑定事件监听器
+        缩写： @
+        预期： function | inline Statement | Object
+        参数： event
+四， 数组
+    4.1 splice作用：删除元素。插入元素 替换元素
+        删除元素： 第二个参数传入你要删除几个元素（不传，默认删除后面的所有元素）
+        替换元素： 第二个元素，表示我们要替换几个元素，后面是用于替换前面的元素
+        插入元素： 第二个元素传入0， 并且后面跟上我们要插入的元素
+
+五： 函数式变成
+filter/ map/ reduce
+
+filter : 中的回调函数有一个要求，必须返回一个boolean值
+true： 函数内部会自动将这次回调的n加入到新的数组中
+false： 函数内部会过滤掉这次的n
+book=[1,2,3,4,5,6]
+let newbOOk = book.filter(function(n){
+       return true;
+})
+
+2. map
+    book.map(function(n){
+         return n*2;
+    })
+    替换回原来对应的n值
+
+3. reduce；preValue 上一次返回的值，
+     let total = book.reduce(function(preValue, n)){
+           return preValue+n;
+      ,0}
+    高阶写法：
+
+
+六. 组件化的思想
+    组件使用的基本步骤
+        1. 创建组件构造器  -----》 调用vue.extend() 创建组件构造器
+        2. 注册组件  -----调用vue.component() 注册组件---》是全局组件,
+            意味着可以在多个vue实例下使用
+            2.2 怎么注册才是局部组件
+                就是把componenet写在vue实例中
+        3. 使用组件 -----》 在vue实例作用的范围使用组件

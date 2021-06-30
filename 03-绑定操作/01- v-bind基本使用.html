@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!--<img src="../image/img.png">-->
+  <img v-bind:src="imgUrl" alt="">
+  <!--语法糖形式-->
+  <img :src="imgUrl" alt="">
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data:{
+      message: '你好啊！，vue',
+      imgUrl: '../image/img.png',
+    }
+  })
+</script>
+</body>
+</html>

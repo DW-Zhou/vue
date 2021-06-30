@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <my-convue></my-convue>
+  <myss></myss>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const myconvue = Vue.extend({
+      template: `
+          <div>
+            <p v-for="item in books">{{item}}</p>
+            <p>jkjkkjkkj</p>
+          </div>
+        `
+  })
+ // Vue.component('my-convue', myconvue) 全局组件
+  const app = new Vue({
+    el: '#app',
+    data:{
+        books: [1,2,3,4,5,6]
+    },
+    components: {
+      myss: myconvue
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+    <link rel="stylesheet" href="../lib/codemirror.css">
+    <script src="../lib/codemirror.js"></script>
+    <!--引入mode下相应语言.js-->
+    <script src="../js/javascript.js"></script>
+    <script src="../js/vue.js"></script>
+    <!--引入主题-->
+    <link rel="stylesheet" href="../css/base16-light.css">
+    <style>
+        #edt{border: 1px solid #ccc;width:400px;height:400px;}
+    </style>
+</head>
+<body>
+<div id="app">
+    <select v-model="theme">
+        <option value="base16-dark">base16-dark</option>
+        <option value="base16-light">base16-light</option>
+    </select>
+    {{theme}}
+    <div id="edt">
+
+    </div>
+</div>
+
+<script>
+
+
+
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            //codemirror编辑器配置
+            theme:"base16-dark",
+        },
+
+    })
+    vm.$watch("theme",function(nVal,oVal){
+        edt.setOption("theme",nVal);
+    })
+    //实例化一个JS编辑器
+    var edt = CodeMirror(
+        document.getElementById("edt"),
+        {
+            lineNumbers:true,
+            mode:{name:"javascript",json:true},
+            theme:vm.$data.theme
+        }
+    )
+    edt.on('change', function (){
+      edt.showHint();
+    });
+    //console.log(edt);
+</script>
+</body>
+</html>

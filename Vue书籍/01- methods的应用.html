@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+    <style>
+        .oc {
+            border: 20px;
+            align-self: auto;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <p v-if="isshow" class="oc">这事宜本</p>
+    <p v-if="isshow">ouiui</p>
+    <button @click="showP()">点击隐藏</button>
+    <button @click="thandClose">位置</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data:{
+        isshow: true,
+    },
+    methods: {
+        showP: function (){
+          return this.isshow = !this.isshow;
+        },
+        thandClose: function (){
+            this.close();
+        }
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <my-com></my-com>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const myCon = Vue.extend({
+      template: `<h2>标题</h2>
+<p>sdsdsdss</p>`
+
+  });
+  Vue.component('my-com', myCon)
+  const app = new Vue({
+    el: '#app',
+    data:{
+
+    }
+  })
+</script>
+</body>
+</html>

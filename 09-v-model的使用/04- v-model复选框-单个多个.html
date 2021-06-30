@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="single_app">
+    <h4>{{message}}</h4>
+    <label for="agree">
+        <input type="checkbox" id="agree" v-model="isArgee"> 同意协议
+    </label>
+    <button :disabled="!isArgee">下一步</button>
+    <h3>展示: {{isArgee}}</h3>
+</div>
+<div id="mutle_app">
+    <h4>{{message}}</h4>
+    <label for="">
+      <input type="checkbox" value="篮球" v-model="hobbis">篮球<br>
+      <input type="checkbox" value="足球" v-model="hobbis">足球<br>
+      <input type="checkbox" value="排球" v-model="hobbis">排球<br>
+    </label>
+    <h3>您选择的爱好是: {{hobbis}}</h3>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const sing_app = new Vue({
+    el: '#single_app',
+    data:{
+        message: '单选checkbox',
+        isArgee: true
+    }
+  });
+  const app = new Vue({
+      el: '#mutle_app',
+      data:{
+        message: '复选checkbox',
+        hobbis: []
+      }
+  })
+</script>
+</body>
+</html>

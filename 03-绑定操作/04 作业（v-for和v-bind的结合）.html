@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>点击变红</title>
+    <style>
+        .icolor{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<!--点击列表中某一项，该项变红或黑，第一次打开页面时第一项显示红色-->
+<div id="app">
+    <ul>
+        <li v-for="(item,index) in movies" v-on:click="getColor(index)"
+            v-bind:class="{icolor:item.isActive}">{{index}}-{{item.movie}}</li>
+    </ul>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            movies:[
+                {movie:'火影忍者',isActive:true},
+                {movie:'进击的巨人',isActive:false},
+                {movie:'海贼王',isActive:false},
+                {movie:'慎重的勇者',isActive:false}],
+        },
+        methods:{
+            getColor:function (index) {
+                this.movies[index].isActive = !this.movies[index].isActive;
+            }
+        }
+    })
+</script>
+</body>
+</html>
