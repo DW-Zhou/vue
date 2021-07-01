@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cocul></cocul>
+  <cocul></cocul>
+</div>
+<template id="conculator">
+  <div>
+    <p>数字: {{count}}</p>
+    <button @click="dev">-</button>
+    <button @click="add">+</button>
+  </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+  const obj = {
+    count : 1
+  }
+  Vue.component('cocul', {
+    template: '#conculator',
+    data (){
+      return obj
+    },
+    /*data: {
+      count: 1
+    },*/
+    methods: {
+      add(){
+        this.count++;
+      },
+      dev(){
+        this.count--;
+      }
+    }
+  });
+  const app = new Vue({
+    el: '#app',
+    data:{
+
+    }
+  })
+  /*java解释：就是作用范围不一样，不用函数就类似全局变量
+  ，放到函数内部创建，则只会作用的该对象范围*/
+</script>
+</body>
+</html>
